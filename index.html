@@ -39,9 +39,10 @@ body{
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
-  padding:12px 16px;
+  padding:10px 12px;
   background:linear-gradient(180deg,rgba(4,12,26,.97) 70%,transparent);
   backdrop-filter:blur(8px);
+  min-height:44px;
 }
 .nb{
   font-size:.78rem;padding:5px 14px;border-radius:99px;
@@ -51,6 +52,11 @@ body{
   font-family:'Noto Serif Bengali',Georgia,serif;
 }
 .nb:hover{background:rgba(212,175,55,.22);transform:translateY(-2px);box-shadow:0 4px 16px rgba(212,175,55,.2)}
+@media(max-width:480px){
+  .nav{padding:8px 8px;gap:4px}
+  .nb{font-size:.7rem;padding:4px 10px}
+  .hero{padding-top:8rem}
+}
 
 /* ── HERO ── */
 .hero{
@@ -295,12 +301,21 @@ body{
   color:var(--g1);text-shadow:0 0 30px rgba(212,175,55,.8);line-height:1;
 }
 .re-txt{font-size:.9rem;color:rgba(253,246,227,.6);margin-top:.6rem;line-height:1.7}
-.re-again{
-  margin-top:.8rem;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.3);
-  border-radius:99px;padding:.4rem 1.1rem;color:var(--g1);
-  font-family:'Noto Serif Bengali',Georgia,serif;font-size:.82rem;cursor:pointer;
+.lot-select{
+  cursor:pointer;transition:all .3s;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23D4AF37' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 1.2rem center;
+  color-scheme:dark;
 }
-.re-again:hover{background:rgba(212,175,55,.2)}
+.lot-select option{
+  background:#0d1f3c;
+  color:var(--cream);
+  padding:10px;
+  font-size:1rem;
+}
+.re-note{font-size:.82rem;color:#86efac;margin-top:.5rem;line-height:1.6;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:.5rem .8rem;display:none}
 
 /* leaderboard */
 .lb{
@@ -475,7 +490,20 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   <div class="h-msg">
     রমজানের পবিত্র সাধনার পর এলো আনন্দের বার্তা —<br>
     আল্লাহ সবার রোজা ও ইবাদত কবুল করুন।<br>
-    জীবন হোক সুখময়, পরিবার থাকুক হাসিখুশি! 🌙
+    জীবন হোক সুখময়, পরিবার থাকুক হাসিখুশি! 🌙<br>
+    <span style="
+      font-family:'Cinzel','Noto Serif Bengali',Georgia,serif;
+      font-size:clamp(1.5rem,2vw,2rem);
+      font-weight:900;
+      background:linear-gradient(135deg,#FFFBE6,#FFE566,#D4AF37,#A07828,#D4AF37,#FFE566);
+      background-size:300%;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      animation:goldPulse 4s ease-in-out infinite,textShimmer 5s linear infinite;
+      letter-spacing:4px;
+      text-shadow:none;
+      filter:drop-shadow(0 0 30px rgba(212,175,55,.5));
+    ">[MAHIM AHMAD]</span>
+
   </div>
   <p class="scroll-hint">▼ &nbsp; নিচে স্ক্রোল করো &nbsp; ▼</p>
 </section>
@@ -514,7 +542,14 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
       </div>
 
       <div class="lot-ctrls">
-        <input class="lot-inp" id="lotName" placeholder="তোমার নাম লিখো ✍️" maxlength="18">
+        <input class="lot-inp" id="lotName" placeholder="তোমার পুরো নাম ✍️" maxlength="24">
+        <input class="lot-inp" id="lotBkash" placeholder="বিকাশ নম্বর 📱" maxlength="11" type="tel">
+        <input class="lot-inp" id="lotCgpa" placeholder="CGPA (যেমন: 3.75) 📊" maxlength="4">
+        <select class="lot-inp lot-select" id="lotLevel" onchange="levelColorChange(this)">
+          <option value="" disabled selected style="background:#040c1a;color:rgba(253,246,227,.4)">Junior / Senior? 🎓</option>
+          <option value="Junior" style="background:#040c1a;color:#93c5fd;font-size:1rem;padding:8px">🎒 Junior (১ম-২য় বর্ষ)</option>
+          <option value="Senior" style="background:#040c1a;color:#fdba74;font-size:1rem;padding:8px">🎓 Senior (৩য়-৪র্থ বর্ষ)</option>
+        </select>
         <button class="spin-btn" id="spinBtn" onclick="doSpin()">🎰 &nbsp; চাকা ঘোরাও!</button>
       </div>
 
@@ -523,7 +558,11 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
         <div class="re-who" id="reWho"></div>
         <div class="re-amt" id="reAmt"></div>
         <div class="re-txt" id="reTxt"></div>
-        <button class="re-again" onclick="doFW()">🎆 আতশবাজি ফোটাও!</button>
+        <div class="re-note" id="reNote"></div>
+        <div style="margin-top:1rem">
+          <div style="font-size:.8rem;color:rgba(212,175,55,.7);margin-bottom:.5rem;letter-spacing:1px">👇 টাকা পেতে WhatsApp এ ক্লিক করো</div>
+          <button class="re-again" id="waSendBtn" onclick="sendWA()" style="background:linear-gradient(135deg,#25d366,#128c7e);border:none;color:#fff;padding:.6rem 1.8rem;font-size:.95rem;border-radius:99px;cursor:pointer;box-shadow:0 0 20px rgba(37,211,102,.4)">📲 WhatsApp এ পাঠাও</button>
+        </div>
       </div>
     </div>
 
@@ -531,6 +570,7 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
       <div class="lb-h">🏆 &nbsp; সালামি লিডারবোর্ড</div>
       <div id="lbBody"><div class="lb-empty">এখনো কেউ খেলেনি — তুমিই প্রথম! 🎯</div></div>
     </div>
+
   </div>
 </section>
 
@@ -571,23 +611,6 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
 
 <div class="div-line"><span>✦ ❋ ✦ ❋ ✦</span></div>
 
-<!-- QUIZ -->
-<section class="sec quiz-sec" id="quiz">
-  <div class="sec-center">
-    <span class="sec-orn">🧠 ✦ 🧠</span>
-    <div class="sec-title">ঈদ কুইজ</div>
-    <div class="sec-sub">কতটুকু জানো ঈদ সম্পর্কে?</div>
-  </div>
-  <div class="q-shell">
-    <div class="q-prog"><div class="q-prog-fill" id="qFill" style="width:0%"></div></div>
-    <div class="q-score-disp" id="qScr">স্কোর: ০</div>
-    <div class="q-text" id="qTxt">লোড হচ্ছে...</div>
-    <div class="q-opts" id="qOpts"></div>
-    <button class="q-next" id="qNext" onclick="nextQ()">পরের প্রশ্ন →</button>
-  </div>
-</section>
-
-<div class="div-line"><span>✦ ❋ ✦ ❋ ✦</span></div>
 
 <!-- FEATURES -->
 <section class="sec feats-sec" id="features">
@@ -598,8 +621,8 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   <div class="feats-grid">
     <div class="feat-card"><span class="feat-icon">🕌</span><div class="feat-name">ঈদের নামাজ</div><div class="feat-txt">ভোরে ঈদগাহে যাও, আল্লাহর কাছে শুকরিয়া জানাও।</div></div>
     <div class="feat-card"><span class="feat-icon">🍮</span><div class="feat-name">সেমাই পায়েস</div><div class="feat-txt">মায়ের হাতের সেমাই ছাড়া ঈদ কি হয়? মনভরে খাও!</div></div>
-    <div class="feat-card"><span class="feat-icon">💸</span><div class="feat-name">ঈদের সালামি</div><div class="feat-txt">উপরের লটারিতে চেষ্টা করো — হয়তো জ্যাকপট! 🎰</div></div>
-    <div class="feat-card"><span class="feat-icon">👗</span><div class="feat-name">নতুন পোশাক</div><div class="feat-txt">ঈদে নতুন জামার গন্ধ অন্যরকম। পরিপাটি হও!</div></div>
+    <!-- <div class="feat-card"><span class="feat-icon">💸</span><div class="feat-name">ঈদের সালামি</div><div class="feat-txt">উপরের লটারিতে চেষ্টা করো — হয়তো জ্যাকপট! 🎰</div></div>
+    <div class="feat-card"><span class="feat-icon">👗</span><div class="feat-name">নতুন পোশাক</div><div class="feat-txt">ঈদে নতুন জামার গন্ধ অন্যরকম। পরিপাটি হও!</div></div> -->
     <div class="feat-card"><span class="feat-icon">🤗</span><div class="feat-name">কোলাকুলি</div><div class="feat-txt">রাগ-অভিমান ভুলে সবার সাথে কোলাকুলি করো!</div></div>
     <div class="feat-card" onclick="doFW()"><span class="feat-icon">🎆</span><div class="feat-name">আতশবাজি!</div><div class="feat-txt">ক্লিক করো — স্ক্রিনে আতশবাজি ফুটবে! ✨</div></div>
   </div>
@@ -609,6 +632,23 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   <div class="ft-ar">عيد مبارك وكل عام وأنتم بخير</div>
   <div style="font-size:1.5rem;margin:.5rem 0">🌙 ⭐ 🌙</div>
   <div class="ft-bn">ঈদ মুবারক — জীবন হোক সুখ, শান্তি ও বরকতে পূর্ণ 💛</div>
+  <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(212,175,55,.15)">
+    <div style="font-family:'Amiri',Georgia,serif;font-size:1rem;color:rgba(212,175,55,.4);letter-spacing:3px;margin-bottom:.6rem">—  —</div>
+    <h2 style="
+      font-family:'Cinzel','Noto Serif Bengali',Georgia,serif;
+      font-size:clamp(2.2rem,6vw,4rem);
+      font-weight:900;
+      background:linear-gradient(135deg,#FFFBE6,#FFE566,#D4AF37,#A07828,#D4AF37,#FFE566);
+      background-size:300%;
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+      animation:goldPulse 4s ease-in-out infinite,textShimmer 5s linear infinite;
+      letter-spacing:4px;
+      text-shadow:none;
+      filter:drop-shadow(0 0 30px rgba(212,175,55,.5));
+      margin-bottom:.4rem;
+    ">MAHIM AHMAD</h2>
+    <div style="font-size:.9rem;color:rgba(212,175,55,.5);letter-spacing:3px">✦ &nbsp; ঈদ মুবারক &nbsp; ✦</div>
+  </div>
 </footer>
 
 </div><!-- end .page -->
@@ -758,10 +798,18 @@ function wFrame(){
 }
 function doSpin(){
   const nm=document.getElementById('lotName').value.trim();
+  const bk=document.getElementById('lotBkash').value.trim();
+  const cgpa=document.getElementById('lotCgpa').value.trim();
+  const lvl=document.getElementById('lotLevel').value;
   if(!nm){
     const inp=document.getElementById('lotName');
     inp.style.borderColor='rgba(239,68,68,.7)';inp.placeholder='আগে নাম দাও! 😅';
-    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='তোমার নাম লিখো ✍️'},2200);return;
+    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='তোমার পুরো নাম ✍️'},2200);return;
+  }
+  if(!bk||bk.length<11){
+    const inp=document.getElementById('lotBkash');
+    inp.style.borderColor='rgba(239,68,68,.7)';inp.placeholder='সঠিক বিকাশ নম্বর দাও! 📱';
+    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='বিকাশ নম্বর 📱'},2200);return;
   }
   if(wSpin)return;
   document.getElementById('resCard').style.display='none';
@@ -771,17 +819,38 @@ function doSpin(){
   requestAnimationFrame(wFrame);
 }
 function showResult(p,nm){
+  const bk=document.getElementById('lotBkash').value.trim();
+  const cgpa=document.getElementById('lotCgpa').value.trim();
+  const lvl=document.getElementById('lotLevel').value||'—';
   const msgs=[
-    `মোবারক হো ${nm}! ঈদে ভাগ্য খুলে গেছে তোমার! 🎉`,
-    `বাহ ${nm}! ঈদ মুবারক — সালামি হালাল করে খেও! 🌙`,
-    `আলহামদুলিল্লাহ! ${nm} আজ মালামাল! মনের আনন্দে খরচ করো! 💛`,
-    `সুবহানাল্লাহ! ${nm} — ঈদের বরকতে তুমি বিজয়ী! 🏆`,
+    `মোবারক হো ${nm}! মাহিম আহমাদ এর তরফ থেকে সালামি নেও! 🎉`,
+    `বাহ ${nm}! মাহিম আহমাদ ভাই তোমাকে সালামি দিচ্ছেন — ঈদ মুবারক! 🌙`,
+    `আলহামদুলিল্লাহ! ${nm} — মাহিম আহমাদ এর তরফ থেকে ঈদের সালামি! 💛`,
+    `সুবহানাল্লাহ! ${nm} — মাহিম আহমাদ ভাই এর দোয়া ও সালামি নাও! 🏆`,
   ];
   document.getElementById('reEm').textContent=p.e;
-  document.getElementById('reWho').textContent=nm+' পেলো —';
+  document.getElementById('reWho').textContent='মাহিম আহমাদ এর তরফ থেকে '+nm+' পেলো —';
   document.getElementById('reAmt').textContent='৳'+p.a.toLocaleString();
   document.getElementById('reTxt').textContent=msgs[Math.floor(Math.random()*msgs.length)];
+  // funny 1% note
+  const oneP=(p.a*0.01).toFixed(2);
+  const funnyNotes=[
+    `😂 দ্রষ্টব্য: তুমি আসলে পাবে মাত্র ${oneP} টাকা — মানে ১%! বাকিটা মাহিম ভাইয়ের ফি! 🤣`,
+    `😅 সৎ কথা: ${p.a} টাকার ১% হলো ${oneP} টাকা — এটাই তোমার ভাগ্যে! ভাই কমিশন নেবেন! 😆`,
+    `🙈 লুকানো শর্ত: ${p.a} টাকার মধ্যে ${oneP} টাকা তোমার, বাকি ৯৯% প্রসেসিং ফি! 😂`,
+  ];
+  const noteEl=document.getElementById('reNote');
+  noteEl.textContent=funnyNotes[Math.floor(Math.random()*funnyNotes.length)];
+  noteEl.style.display='block';
   document.getElementById('resCard').style.display='block';
+  // save entry
+  const entry={nm,bk,cgpa:cgpa||'—',lvl,prize:p.a};
+  lastEntry=entry;
+  try{
+    const saved=JSON.parse(localStorage.getItem('eid_entries')||'[]');
+    saved.unshift({...entry,time:new Date().toLocaleTimeString()});
+    localStorage.setItem('eid_entries',JSON.stringify(saved.slice(0,50)));
+  }catch(e){}
   lbData.unshift({nm,a:p.a,e:p.e});lbData=lbData.slice(0,10);renderLB();
 }
 function renderLB(){
@@ -789,6 +858,27 @@ function renderLB(){
   document.getElementById('lbBody').innerHTML=s.length
     ?s.map((r,i)=>`<div class="lb-row" style="animation-delay:${i*.06}s"><span class="lb-rk">${ranks[i]||'•'}</span><span class="lb-nm">${r.e} ${r.nm}</span><span class="lb-pr">৳${r.a.toLocaleString()}</span></div>`).join('')
     :'<div class="lb-empty">এখনো কেউ খেলেনি!</div>';
+}
+
+function levelColorChange(sel){
+  if(sel.value==='Junior'){
+    sel.style.borderColor='rgba(96,165,250,.7)';
+    sel.style.background='rgba(59,130,246,.12)';
+    sel.style.color='#93c5fd';
+  } else if(sel.value==='Senior'){
+    sel.style.borderColor='rgba(251,146,60,.7)';
+    sel.style.background='rgba(249,115,22,.12)';
+    sel.style.color='#fdba74';
+  }
+}
+
+let lastEntry=null;
+
+function sendWA(){
+  if(!lastEntry){alert('আগে spin করো!');return;}
+  const {nm,bk,cgpa,lvl,prize}=lastEntry;
+  const msg='🎰 ঈদের সালামি লটারি 🎰\n\n👤 নাম: '+nm+'\n📱 বিকাশ: '+bk+'\n📊 CGPA: '+cgpa+'\n🎓 লেভেল: '+lvl+'\n💰 পুরস্কার: ৳'+prize+'\n⏰ সময়: '+new Date().toLocaleTimeString()+'\n\n🌙 মাহিম আহমাদ এর তরফ থেকে ঈদ মুবারক!';
+  window.open('https://wa.me/8801960603846?text='+encodeURIComponent(msg),'_blank');
 }
 
 // ═══ GREETING ═══
@@ -873,11 +963,11 @@ const fc=document.getElementById('fwCanvas'),fx=fc.getContext('2d');
 let parts=[];
 function resizeFW(){fc.width=innerWidth;fc.height=innerHeight}resizeFW();addEventListener('resize',resizeFW);
 function doFW(){
-  for(let b=0;b<7;b++){setTimeout(()=>{
-    const x=Math.random()*fc.width,y=Math.random()*fc.height*.55+30,h=Math.random()*360;
-    for(let i=0;i<110;i++){const a=Math.PI*2*i/110+Math.random()*.15,sp=Math.random()*7+2;
-      parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,dec:Math.random()*.013+.008,r:Math.random()*3+1,col:`hsl(${h+Math.random()*50-25},100%,65%)`});}
-  },b*165);}
+  for(let b=0;b<10;b++){setTimeout(()=>{
+    const x=Math.random()*fc.width,y=Math.random()*fc.height*.6+30,h=Math.random()*360;
+    for(let i=0;i<120;i++){const a=Math.PI*2*i/120+Math.random()*.15,sp=Math.random()*8+2;
+      parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,dec:Math.random()*.025+.018,r:Math.random()*3+1,col:`hsl(${h+Math.random()*60-30},100%,65%)`});}
+  },b*220);}
 }
 function fwTick(){
   parts=parts.filter(p=>p.life>0);
