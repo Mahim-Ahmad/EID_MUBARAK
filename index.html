@@ -21,8 +21,6 @@ body{
   overflow-x:hidden;
   min-height:100vh;
 }
-
-/* ── BACKGROUND: stars painted directly, not as fixed overlay ── */
 #starsBg{
   position:fixed;top:0;left:0;width:100%;height:100%;
   z-index:0;pointer-events:none;
@@ -31,11 +29,7 @@ body{
   position:fixed;top:0;left:0;width:100%;height:100%;
   z-index:500;pointer-events:none;
 }
-
-/* ── ALL CONTENT above bg ── */
 .page{position:relative;z-index:10}
-
-/* ── NAV ── */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
@@ -57,15 +51,12 @@ body{
   .nb{font-size:.7rem;padding:4px 10px}
   .hero{padding-top:8rem}
 }
-
-/* ── HERO ── */
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:6rem 1.5rem 3rem;
   position:relative;
 }
-/* subtle grid overlay */
 .hero::before{
   content:'';position:absolute;inset:0;
   background-image:
@@ -74,7 +65,6 @@ body{
   background-size:60px 60px;
   pointer-events:none;
 }
-/* border frame */
 .hero-frame{
   position:absolute;inset:16px;
   border:1px solid rgba(212,175,55,.12);
@@ -85,13 +75,9 @@ body{
   border:1px solid rgba(212,175,55,.06);
   border-radius:2px;
 }
-
-/* corner diamonds */
 .c-d{position:absolute;width:8px;height:8px;background:rgba(212,175,55,.5);transform:rotate(45deg)}
 .c-d.tl{top:14px;left:14px}.c-d.tr{top:14px;right:14px}
 .c-d.bl{bottom:14px;left:14px}.c-d.br{bottom:14px;right:14px}
-
-/* LANTERNS */
 .lan-row{position:absolute;top:0;left:0;right:0;height:190px;overflow:hidden;pointer-events:none}
 .lan{position:absolute;top:0;display:flex;flex-direction:column;align-items:center;transform-origin:top center;animation:swing var(--d,3.5s) ease-in-out infinite;animation-delay:var(--dl,0s)}
 @keyframes swing{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
@@ -106,8 +92,6 @@ body{
 @keyframes lanGlow{from{filter:brightness(1)}to{filter:brightness(1.35) saturate(1.2)}}
 .lan-shine{position:absolute;top:7px;left:5px;width:9px;height:16px;background:rgba(255,255,255,.2);border-radius:50%;transform:rotate(-20deg)}
 .lan-drip{width:2px;height:10px;background:currentColor;opacity:.4;margin-top:1px}
-
-/* MOON */
 .moon-wrap{
   position:relative;width:170px;height:170px;margin:0 auto 1.8rem;
   animation:moonFloat 8s ease-in-out infinite;
@@ -131,8 +115,6 @@ body{
 .moon-star1{position:absolute;top:-10px;right:-6px;font-size:2.2rem;filter:drop-shadow(0 0 10px rgba(212,175,55,.9));animation:starOrbit 22s linear infinite}
 .moon-star2{position:absolute;bottom:8px;right:-14px;font-size:1.1rem;opacity:.7;filter:drop-shadow(0 0 6px rgba(212,175,55,.8));animation:starOrbit 16s linear infinite reverse}
 @keyframes starOrbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-
-/* HERO TEXT */
 .h-arabic{
   font-family:'Amiri',Georgia,serif;
   font-size:clamp(2.4rem,7vw,5rem);
@@ -158,8 +140,6 @@ body{
 }
 .scroll-hint{margin-top:2.5rem;font-size:.75rem;letter-spacing:4px;color:rgba(212,175,55,.3);animation:scrollBounce 2.5s ease-in-out infinite}
 @keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
-
-/* ── MARQUEE ── */
 .marq-wrap{
   padding:1rem 0;overflow:hidden;
   border-top:1px solid rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.1);
@@ -168,8 +148,6 @@ body{
 .marq-inner{display:flex;gap:2rem;white-space:nowrap;animation:marqScroll 35s linear infinite}
 .marq-item{font-family:'Amiri',Georgia,serif;font-size:1.2rem;color:rgba(212,175,55,.45);letter-spacing:5px;flex-shrink:0}
 @keyframes marqScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ── SECTION WRAPPER ── */
 .sec{padding:4rem 1.5rem}
 .sec-center{text-align:center;margin-bottom:2.5rem}
 .sec-orn{font-family:'Amiri',Georgia,serif;font-size:1.3rem;color:rgba(212,175,55,.3);letter-spacing:10px;display:block;margin-bottom:.4rem}
@@ -180,14 +158,10 @@ body{
   text-shadow:0 0 25px rgba(212,175,55,.4);
 }
 .sec-sub{font-size:.88rem;color:rgba(212,175,55,.5);margin-top:.4rem;letter-spacing:2px}
-
-/* ── DIVIDER ── */
 .div-line{text-align:center;padding:.8rem 1rem;display:flex;align-items:center;justify-content:center;gap:12px}
 .div-line::before,.div-line::after{content:'';flex:1;max-width:160px;height:1px;background:linear-gradient(90deg,transparent,rgba(212,175,55,.3))}
 .div-line::after{background:linear-gradient(90deg,rgba(212,175,55,.3),transparent)}
 .div-line span{font-family:'Amiri',serif;font-size:1.5rem;color:rgba(212,175,55,.35);letter-spacing:8px}
-
-/* ── COUNTDOWN ── */
 .cd-sec{background:linear-gradient(180deg,transparent,rgba(7,20,40,.7),transparent)}
 .cd-grid{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 .cd-box{
@@ -206,8 +180,6 @@ body{
 }
 .cd-u{font-size:.72rem;color:rgba(212,175,55,.5);letter-spacing:2px;margin-top:6px;display:block}
 .eid-now{display:none;text-align:center;font-family:'Cinzel',serif;font-size:2rem;color:var(--g1);text-shadow:0 0 30px rgba(212,175,55,.8)}
-
-/* ── LOTTERY ── */
 .lot-sec{max-width:920px;margin:0 auto}
 .lot-shell{
   background:linear-gradient(145deg,rgba(7,20,40,.95),rgba(4,12,26,.98));
@@ -228,12 +200,8 @@ body{
   animation:orbMove 18s ease-in-out infinite reverse;pointer-events:none;
 }
 @keyframes orbMove{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,35px)}}
-
-/* prize chips */
 .p-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-bottom:1.5rem;position:relative;z-index:2}
 .p-chip{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid;font-family:'Cinzel','Noto Serif Bengali',serif}
-
-/* wheel */
 .wheel-zone{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2}
 .wheel-outer{position:relative;width:320px;height:320px;margin:0 auto 1.5rem}
 #wcanvas{
@@ -255,8 +223,6 @@ body{
   border:4px solid var(--bg);box-shadow:0 0 22px rgba(212,175,55,.8);
   display:flex;align-items:center;justify-content:center;font-size:1.5rem;
 }
-
-/* controls */
 .lot-ctrls{display:flex;flex-direction:column;align-items:center;gap:.85rem;width:100%;max-width:400px}
 .lot-inp{
   width:100%;background:rgba(212,175,55,.08);
@@ -284,8 +250,6 @@ body{
 @keyframes glare{0%,100%{left:-80%}60%{left:130%}}
 .spin-btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 45px rgba(212,175,55,.6)}
 .spin-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;animation:none}
-
-/* result */
 .res-card{
   display:none;margin-top:1.5rem;width:100%;position:relative;z-index:2;
   background:linear-gradient(135deg,rgba(4,12,26,.98),rgba(7,20,40,.98));
@@ -309,15 +273,8 @@ body{
   background-position:right 1.2rem center;
   color-scheme:dark;
 }
-.lot-select option{
-  background:#0d1f3c;
-  color:var(--cream);
-  padding:10px;
-  font-size:1rem;
-}
+.lot-select option{background:#0d1f3c;color:var(--cream);padding:10px;font-size:1rem;}
 .re-note{font-size:.82rem;color:#86efac;margin-top:.5rem;line-height:1.6;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:10px;padding:.5rem .8rem;display:none}
-
-/* leaderboard */
 .lb{
   margin-top:2rem;background:rgba(0,0,0,.3);
   border:1px solid rgba(212,175,55,.14);border-radius:18px;padding:1.4rem;
@@ -335,8 +292,6 @@ body{
 .lb-nm{flex:1;font-size:.9rem;color:var(--cream2)}
 .lb-pr{font-family:'Cinzel',serif;font-weight:700;color:var(--g1);font-size:.9rem;background:rgba(212,175,55,.1);padding:2px 9px;border-radius:99px}
 .lb-empty{text-align:center;color:rgba(253,246,227,.3);font-size:.85rem;padding:1rem}
-
-/* ── GREETING ── */
 .greet-sec{max-width:700px;margin:0 auto}
 .g-types{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1.2rem}
 .gtype{
@@ -377,8 +332,6 @@ body{
 .g-acts{display:flex;justify-content:center;gap:.55rem;margin-top:1.1rem;flex-wrap:wrap}
 .g-act{background:transparent;border:1px solid rgba(212,175,55,.27);border-radius:99px;padding:.35rem .95rem;color:var(--g2);font-family:'Noto Serif Bengali',Georgia,serif;font-size:.78rem;cursor:pointer;transition:all .2s}
 .g-act:hover{background:rgba(212,175,55,.1);border-color:var(--g2)}
-
-/* ── FEATURES ── */
 .feats-sec{max-width:1080px;margin:0 auto}
 .feats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:1.2rem}
 .feat-card{
@@ -394,8 +347,6 @@ body{
 .feat-card:hover .feat-icon{transform:scale(1.22) rotate(8deg)}
 .feat-name{font-family:'Cinzel','Noto Serif Bengali',serif;font-size:1.05rem;color:var(--g2);margin-bottom:.55rem;letter-spacing:1px}
 .feat-txt{font-size:.86rem;color:rgba(253,246,227,.58);line-height:1.7}
-
-/* ── QUIZ ── */
 .quiz-sec{max-width:650px;margin:0 auto}
 .q-shell{
   background:linear-gradient(145deg,rgba(7,20,40,.93),rgba(4,12,26,.97));
@@ -418,8 +369,6 @@ body{
 .q-opt.locked{cursor:default}
 .q-next{display:none;margin-top:1.1rem;width:100%;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);border-radius:99px;padding:.6rem;color:var(--g1);font-family:'Noto Serif Bengali',Georgia,serif;font-size:.88rem;cursor:pointer;transition:all .25s}
 .q-next:hover{background:rgba(212,175,55,.2)}
-
-/* ── FAB ── */
 .fab{
   position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
   width:56px;height:56px;border-radius:50%;border:none;
@@ -431,13 +380,9 @@ body{
 }
 @keyframes fabPulse{0%,100%{box-shadow:0 6px 28px rgba(212,175,55,.4)}50%{box-shadow:0 6px 46px rgba(212,175,55,.8),0 0 0 10px rgba(212,175,55,.07)}}
 .fab:hover{transform:scale(1.15) rotate(18deg)}
-
-/* ── FOOTER ── */
 footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,55,.1)}
 .ft-ar{font-family:'Amiri',Georgia,serif;font-size:1.5rem;color:rgba(212,175,55,.42);letter-spacing:4px;margin-bottom:.5rem}
 .ft-bn{color:rgba(253,246,227,.32);font-size:.86rem}
-
-/* responsive */
 @media(max-width:580px){
   .wheel-outer{width:270px;height:270px}
   #wcanvas{width:270px!important;height:270px!important}
@@ -451,15 +396,11 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
 </head>
 <body>
 
-<!-- BG CANVAS (purely decorative, behind everything) -->
 <canvas id="starsBg"></canvas>
-<!-- FIREWORKS CANVAS (top layer, pointer-events none) -->
 <canvas id="fwCanvas"></canvas>
 
-<!-- ALL PAGE CONTENT -->
 <div class="page">
 
-<!-- NAV -->
 <nav class="nav">
   <a class="nb" href="#hero">🏠 হোম</a>
   <a class="nb" href="#countdown">⏳ কাউন্টডাউন</a>
@@ -469,13 +410,11 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   <a class="nb" href="#features">🌙 ঈদ</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-frame"></div>
   <div class="c-d tl"></div><div class="c-d tr"></div>
   <div class="c-d bl"></div><div class="c-d br"></div>
   <div class="lan-row" id="lanRow"></div>
-
   <div class="moon-wrap">
     <div class="moon-halo"></div>
     <div class="moon-body"></div>
@@ -483,7 +422,6 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
     <div class="moon-star1">⭐</div>
     <div class="moon-star2">✦</div>
   </div>
-
   <div class="h-arabic">عيد مبارك</div>
   <h1 class="h-bn">ঈদ মুবারক ২০২৬</h1>
   <p class="h-sub">✦ &nbsp; খুশির ঈদ &nbsp; ✦ &nbsp; আনন্দের ঈদ &nbsp; ✦</p>
@@ -503,15 +441,12 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
       text-shadow:none;
       filter:drop-shadow(0 0 30px rgba(212,175,55,.5));
     ">[MAHIM AHMAD]</span>
-
   </div>
   <p class="scroll-hint">▼ &nbsp; নিচে স্ক্রোল করো &nbsp; ▼</p>
 </section>
 
-<!-- MARQUEE -->
 <div class="marq-wrap"><div class="marq-inner" id="marq"></div></div>
 
-<!-- COUNTDOWN -->
 <section class="sec cd-sec" id="countdown">
   <div class="sec-center">
     <span class="sec-orn">❋ ✦ ❋</span>
@@ -523,36 +458,31 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
 
 <div class="div-line"><span>✦ ❋ ✦ ❋ ✦</span></div>
 
-<!-- LOTTERY -->
 <section class="sec lot-sec" id="lottery">
   <div class="sec-center">
     <span class="sec-orn">🎰 ✦ 🎰</span>
     <div class="sec-title">সালামি লটারি</div>
     <div class="sec-sub">নাম লিখো · চাকা ঘোরাও · সালামি জিতে নাও!</div>
   </div>
-
   <div class="lot-shell">
     <div class="p-chips" id="pChips"></div>
-
     <div class="wheel-zone">
       <div class="wheel-outer">
         <div class="w-ptr"></div>
         <canvas id="wcanvas" width="320" height="320"></canvas>
         <div class="w-hub">🌙</div>
       </div>
-
       <div class="lot-ctrls">
         <input class="lot-inp" id="lotName" placeholder="তোমার পুরো নাম ✍️" maxlength="24">
         <input class="lot-inp" id="lotBkash" placeholder="বিকাশ নম্বর 📱" maxlength="11" type="tel">
         <input class="lot-inp" id="lotCgpa" placeholder="CGPA (যেমন: 3.75) 📊" maxlength="4">
         <select class="lot-inp lot-select" id="lotLevel" onchange="levelColorChange(this)">
           <option value="" disabled selected style="background:#040c1a;color:rgba(253,246,227,.4)">Junior / Senior? 🎓</option>
-          <option value="Junior" style="background:#040c1a;color:#93c5fd;font-size:1rem;padding:8px">🎒 Junior (১ম-২য় বর্ষ)</option>
-          <option value="Senior" style="background:#040c1a;color:#fdba74;font-size:1rem;padding:8px">🎓 Senior (৩য়-৪র্থ বর্ষ)</option>
+          <option value="Junior" style="background:#040c1a;color:#93c5fd">🎒 Junior </option>
+          <option value="Senior" style="background:#040c1a;color:#fdba74">🎓 Senior </option>
         </select>
         <button class="spin-btn" id="spinBtn" onclick="doSpin()">🎰 &nbsp; চাকা ঘোরাও!</button>
       </div>
-
       <div class="res-card" id="resCard">
         <span class="re-em" id="reEm">🎉</span>
         <div class="re-who" id="reWho"></div>
@@ -561,29 +491,25 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
         <div class="re-note" id="reNote"></div>
         <div style="margin-top:1rem">
           <div style="font-size:.8rem;color:rgba(212,175,55,.7);margin-bottom:.5rem;letter-spacing:1px">👇 টাকা পেতে WhatsApp এ ক্লিক করো</div>
-          <button class="re-again" id="waSendBtn" onclick="sendWA()" style="background:linear-gradient(135deg,#25d366,#128c7e);border:none;color:#fff;padding:.6rem 1.8rem;font-size:.95rem;border-radius:99px;cursor:pointer;box-shadow:0 0 20px rgba(37,211,102,.4)">📲 WhatsApp এ পাঠাও</button>
+          <button onclick="sendWA()" style="background:linear-gradient(135deg,#25d366,#128c7e);border:none;color:#fff;padding:.6rem 1.8rem;font-size:.95rem;border-radius:99px;cursor:pointer;box-shadow:0 0 20px rgba(37,211,102,.4)">📲 WhatsApp এ পাঠাও</button>
         </div>
       </div>
     </div>
-
     <div class="lb">
       <div class="lb-h">🏆 &nbsp; সালামি লিডারবোর্ড</div>
       <div id="lbBody"><div class="lb-empty">এখনো কেউ খেলেনি — তুমিই প্রথম! 🎯</div></div>
     </div>
-
   </div>
 </section>
 
 <div class="div-line"><span>✦ ❋ ✦ ❋ ✦</span></div>
 
-<!-- GREETING -->
 <section class="sec greet-sec" id="greeting">
   <div class="sec-center">
     <span class="sec-orn">💌 ✦ 💌</span>
     <div class="sec-title">ঈদের শুভেচ্ছা বার্তা</div>
     <div class="sec-sub">প্রিয়জনকে পাঠাও হৃদয় থেকে</div>
   </div>
-
   <div class="g-types">
     <button class="gtype on" onclick="setGT(this,'friend')">👫 বন্ধু</button>
     <button class="gtype" onclick="setGT(this,'family')">👨‍👩‍👧 পরিবার</button>
@@ -609,10 +535,25 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   </div>
 </section>
 
+<!-- <div class="div-line"><span>✦ ❋ ✦ ❋ ✦</span></div>
+
+<section class="sec quiz-sec" id="quiz">
+  <div class="sec-center">
+    <span class="sec-orn">🧠 ✦ 🧠</span>
+    <div class="sec-title">ঈদ কুইজ</div>
+    <div class="sec-sub">কতটুকু জানো ঈদ সম্পর্কে?</div>
+  </div>
+  <div class="q-shell">
+    <div class="q-prog"><div class="q-prog-fill" id="qFill" style="width:0%"></div></div>
+    <div class="q-score-disp" id="qScr">স্কোর: ০</div>
+    <div class="q-text" id="qTxt">লোড হচ্ছে...</div>
+    <div class="q-opts" id="qOpts"></div>
+    <button class="q-next" id="qNext" onclick="nextQ()">পরের প্রশ্ন →</button>
+  </div>
+</section> -->
+
 <div class="div-line"><span>✦ ❋ ✦ ❋ ✦</span></div>
 
-
-<!-- FEATURES -->
 <section class="sec feats-sec" id="features">
   <div class="sec-center">
     <span class="sec-orn">🌙 ✦ 🌙</span>
@@ -621,9 +562,9 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   <div class="feats-grid">
     <div class="feat-card"><span class="feat-icon">🕌</span><div class="feat-name">ঈদের নামাজ</div><div class="feat-txt">ভোরে ঈদগাহে যাও, আল্লাহর কাছে শুকরিয়া জানাও।</div></div>
     <div class="feat-card"><span class="feat-icon">🍮</span><div class="feat-name">সেমাই পায়েস</div><div class="feat-txt">মায়ের হাতের সেমাই ছাড়া ঈদ কি হয়? মনভরে খাও!</div></div>
-    <!-- <div class="feat-card"><span class="feat-icon">💸</span><div class="feat-name">ঈদের সালামি</div><div class="feat-txt">উপরের লটারিতে চেষ্টা করো — হয়তো জ্যাকপট! 🎰</div></div>
-    <div class="feat-card"><span class="feat-icon">👗</span><div class="feat-name">নতুন পোশাক</div><div class="feat-txt">ঈদে নতুন জামার গন্ধ অন্যরকম। পরিপাটি হও!</div></div> -->
-    <div class="feat-card"><span class="feat-icon">🤗</span><div class="feat-name">কোলাকুলি</div><div class="feat-txt">রাগ-অভিমান ভুলে সবার সাথে কোলাকুলি করো!</div></div>
+    <div class="feat-card"><span class="feat-icon">💸</span><div class="feat-name">ঈদের সালামি</div><div class="feat-txt">উপরের লটারিতে চেষ্টা করো — হয়তো জ্যাকপট! 🎰</div></div>
+    <!-- <div class="feat-card"><span class="feat-icon">👗</span><div class="feat-name">নতুন পোশাক</div><div class="feat-txt">ঈদে নতুন জামার গন্ধ অন্যরকম। পরিপাটি হও!</div></div>
+    <div class="feat-card"><span class="feat-icon">🤗</span><div class="feat-name">কোলাকুলি</div><div class="feat-txt">রাগ-অভিমান ভুলে সবার সাথে কোলাকুলি করো!</div></div> -->
     <div class="feat-card" onclick="doFW()"><span class="feat-icon">🎆</span><div class="feat-name">আতশবাজি!</div><div class="feat-txt">ক্লিক করো — স্ক্রিনে আতশবাজি ফুটবে! ✨</div></div>
   </div>
 </section>
@@ -634,29 +575,17 @@ footer{text-align:center;padding:3rem 1.5rem;border-top:1px solid rgba(212,175,5
   <div class="ft-bn">ঈদ মুবারক — জীবন হোক সুখ, শান্তি ও বরকতে পূর্ণ 💛</div>
   <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(212,175,55,.15)">
     <div style="font-family:'Amiri',Georgia,serif;font-size:1rem;color:rgba(212,175,55,.4);letter-spacing:3px;margin-bottom:.6rem">—  —</div>
-    <h2 style="
-      font-family:'Cinzel','Noto Serif Bengali',Georgia,serif;
-      font-size:clamp(1.2rem,2vw,1.5rem);
-      font-weight:900;
-      background:linear-gradient(135deg,#FFFBE6,#FFE566,#D4AF37,#A07828,#D4AF37,#FFE566);
-      background-size:300%;
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-      animation:goldPulse 4s ease-in-out infinite,textShimmer 5s linear infinite;
-      letter-spacing:4px;
-      text-shadow:none;
-      filter:drop-shadow(0 0 30px rgba(212,175,55,.5));
-      margin-bottom:.4rem;
-    ">MAHIM AHMAD</h2>
+    <h2 style="font-family:'Cinzel','Noto Serif Bengali',Georgia,serif;font-size:clamp(1.2rem,2vw,1.5rem);font-weight:900;background:linear-gradient(135deg,#FFFBE6,#FFE566,#D4AF37,#A07828,#D4AF37,#FFE566);background-size:300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:4px;filter:drop-shadow(0 0 30px rgba(212,175,55,.5));margin-bottom:.4rem">MAHIM AHMAD</h2>
     <div style="font-size:.9rem;color:rgba(212,175,55,.5);letter-spacing:3px">✦ &nbsp; ঈদ মুবারক &nbsp; ✦</div>
   </div>
 </footer>
 
-</div><!-- end .page -->
+</div>
 
 <button class="fab" onclick="doFW()" title="আতশবাজি">🎆</button>
 
 <script>
-// ═══ STARS (drawn on separate canvas, truly behind page) ═══
+// ═══ STARS ═══
 const sc=document.getElementById('starsBg'),sx=sc.getContext('2d');
 let stars=[];
 function initStars(){
@@ -668,62 +597,93 @@ function drawStars(){
   stars.forEach(s=>{
     s.a+=s.da;if(s.a<=0||s.a>=1)s.da*=-1;
     sx.beginPath();sx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    sx.fillStyle=`hsla(${s.h},80%,90%,${s.a})`;sx.fill();
+    sx.fillStyle='hsla('+s.h+',80%,90%,'+s.a+')';sx.fill();
   });
   requestAnimationFrame(drawStars);
 }
 initStars();drawStars();addEventListener('resize',initStars);
 
+// ═══ FIREWORKS ═══
+const fc=document.getElementById('fwCanvas'),fx=fc.getContext('2d');
+let parts=[];
+function resizeFW(){fc.width=innerWidth;fc.height=innerHeight;}
+resizeFW();addEventListener('resize',resizeFW);
+
+function doFW(){
+  for(let b=0;b<10;b++){
+    setTimeout(function(){
+      var x=Math.random()*fc.width,y=Math.random()*fc.height*.6+30,h=Math.random()*360;
+      for(var i=0;i<120;i++){
+        var a=Math.PI*2*i/120+Math.random()*.15,sp=Math.random()*8+2;
+        parts.push({x:x,y:y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,dec:Math.random()*.025+.018,r:Math.random()*3+1,col:'hsl('+(h+Math.random()*60-30)+',100%,65%)'});
+      }
+    },b*220);
+  }
+}
+
+function fwTick(){
+  parts=parts.filter(function(p){return p.life>0;});
+  if(parts.length===0){
+    fx.clearRect(0,0,fc.width,fc.height);
+  } else {
+    fx.fillStyle='rgba(4,12,26,.18)';
+    fx.fillRect(0,0,fc.width,fc.height);
+    parts.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.07;p.life-=p.dec;
+      fx.globalAlpha=p.life;
+      fx.beginPath();fx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      fx.fillStyle=p.col;fx.fill();
+    });
+    fx.globalAlpha=1;
+  }
+  requestAnimationFrame(fwTick);
+}
+fwTick();
+window.addEventListener('load',function(){setTimeout(doFW,300);setTimeout(doFW,1400);setTimeout(doFW,2800);});
+
 // ═══ LANTERNS ═══
-const LCLR=[
+var LCLR=[
   {bg:'#e63946',g:'#ff6b6b'},{bg:'#f4a261',g:'#ffc48a'},
   {bg:'#2a9d8f',g:'#4ecdc4'},{bg:'#e9c46a',g:'#ffe680'},
   {bg:'#9b5de5',g:'#c77dff'},{bg:'#f72585',g:'#ff69b4'},
   {bg:'#4361ee',g:'#74b0ff'},{bg:'#06d6a0',g:'#80ffdb'},
 ];
-const lr=document.getElementById('lanRow');
-for(let i=0;i<8;i++){
-  const c=LCLR[i],lft=(i/7*84+8).toFixed(1),dl=(i*.6).toFixed(1),dur=(3.2+i*.38).toFixed(1);
-  lr.innerHTML+=`<div class="lan" style="left:${lft}%;--d:${dur}s;--dl:-${dl}s">
-    <div class="lan-rope"></div>
-    <div class="lan-cap"></div>
-    <div class="lan-body" style="background:radial-gradient(circle at 38% 28%,${c.g},${c.bg});box-shadow:0 0 18px ${c.g},0 0 32px ${c.bg}66">
-      <div class="lan-shine"></div>
-    </div>
-    <div class="lan-drip" style="color:${c.bg}"></div>
-  </div>`;
+var lr=document.getElementById('lanRow');
+for(var i=0;i<8;i++){
+  var c=LCLR[i],lft=(i/7*84+8).toFixed(1),dl=(i*.6).toFixed(1),dur=(3.2+i*.38).toFixed(1);
+  lr.innerHTML+='<div class="lan" style="left:'+lft+'%;--d:'+dur+'s;--dl:-'+dl+'s"><div class="lan-rope"></div><div class="lan-cap"></div><div class="lan-body" style="background:radial-gradient(circle at 38% 28%,'+c.g+','+c.bg+');box-shadow:0 0 18px '+c.g+',0 0 32px '+c.bg+'66"><div class="lan-shine"></div></div><div class="lan-drip" style="color:'+c.bg+'"></div></div>';
 }
 
 // ═══ MARQUEE ═══
-const MI=['ঈদ মুবারক','عيد مبارك','EID MUBARAK','✦','❋','🌙','⭐','আনন্দের ঈদ','তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম','✦'];
-let mh='';for(let i=0;i<3;i++)mh+=MI.map(x=>`<span class="marq-item">${x}</span>`).join('');
+var MI=['ঈদ মুবারক','عيد مبارك','EID MUBARAK','✦','❋','🌙','⭐','আনন্দের ঈদ','তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম','✦'];
+var mh='';for(var mi=0;mi<3;mi++)mh+=MI.map(function(x){return'<span class="marq-item">'+x+'</span>';}).join('');
 document.getElementById('marq').innerHTML=mh;
 
 // ═══ COUNTDOWN ═══
-const EID=new Date('2026-03-20T06:00:00');
+var EID=new Date('2026-03-20T06:00:00');
 function tick(){
-  const d=EID-Date.now();
+  var d=EID-Date.now();
   if(d<=0){document.getElementById('cdGrid').style.display='none';document.getElementById('eidNow').style.display='block';return;}
-  const its=[
+  var its=[
     {v:Math.floor(d/864e5),u:'দিন'},
     {v:Math.floor(d%864e5/36e5),u:'ঘণ্টা'},
     {v:Math.floor(d%36e5/6e4),u:'মিনিট'},
     {v:Math.floor(d%6e4/1e3),u:'সেকেন্ড'}
   ];
-  const g=document.getElementById('cdGrid');
+  var g=document.getElementById('cdGrid');
   if(!g.children.length){
-    g.innerHTML=its.map((x,i)=>`<div class="cd-box" id="cb${i}"><span class="cd-n" id="cn${i}">${String(x.v).padStart(2,'0')}</span><span class="cd-u">${x.u}</span></div>`).join('');
+    g.innerHTML=its.map(function(x,i){return'<div class="cd-box" id="cb'+i+'"><span class="cd-n" id="cn'+i+'">'+String(x.v).padStart(2,'0')+'</span><span class="cd-u">'+x.u+'</span></div>';}).join('');
   } else {
-    its.forEach((x,i)=>{
-      const v=String(x.v).padStart(2,'0'),el=document.getElementById('cn'+i);
-      if(el&&el.textContent!==v){el.textContent=v;const b=document.getElementById('cb'+i);b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');}
+    its.forEach(function(x,i){
+      var v=String(x.v).padStart(2,'0'),el=document.getElementById('cn'+i);
+      if(el&&el.textContent!==v){el.textContent=v;var b=document.getElementById('cb'+i);b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');}
     });
   }
 }
 tick();setInterval(tick,1000);
 
-// ═══ LOTTERY WHEEL ═══
-const PRIZES=[
+// ═══ LOTTERY ═══
+var PRIZES=[
   {t:'৳10',a:10,bg:'#14532d',fg:'#86efac',e:'💵'},
   {t:'৳20',a:20,bg:'#1e3a5f',fg:'#93c5fd',e:'💴'},
   {t:'৳50',a:50,bg:'#451a03',fg:'#fcd34d',e:'💰'},
@@ -737,44 +697,38 @@ const PRIZES=[
   {t:'৳100',a:100,bg:'#042f2e',fg:'#99f6e4',e:'💎'},
   {t:'৳20',a:20,bg:'#3f1f01',fg:'#fed7aa',e:'💴'},
 ];
-const PN=PRIZES.length,PARC=2*Math.PI/PN;
+var PN=PRIZES.length,PARC=2*Math.PI/PN;
 
-// prize chips
 document.getElementById('pChips').innerHTML=
-  [...new Set(PRIZES.map(p=>p.a))].sort((a,b)=>a-b).map(a=>{
-    const p=PRIZES.find(x=>x.a===a);
-    return`<span class="p-chip" style="color:${p.fg};border-color:${p.fg}55;background:${p.bg}99">${p.e} ৳${a}</span>`;
+  [...new Set(PRIZES.map(function(p){return p.a;}))].sort(function(a,b){return a-b;}).map(function(a){
+    var p=PRIZES.find(function(x){return x.a===a;});
+    return'<span class="p-chip" style="color:'+p.fg+';border-color:'+p.fg+'55;background:'+p.bg+'99">'+p.e+' ৳'+a+'</span>';
   }).join('');
 
-const wc=document.getElementById('wcanvas'),wCtx=wc.getContext('2d');
-const WSZ=wc.width,WCX=WSZ/2,WCY=WSZ/2,WR=WSZ/2-5;
-let wAng=0,wVel=0,wSpin=false,lbData=[];
+var wc=document.getElementById('wcanvas'),wCtx=wc.getContext('2d');
+var WSZ=wc.width,WCX=WSZ/2,WCY=WSZ/2,WR=WSZ/2-5;
+var wAng=0,wVel=0,wSpin=false,lbData=[];
 
 function drawWheel(){
   wCtx.clearRect(0,0,WSZ,WSZ);
-  for(let i=0;i<PN;i++){
-    const s=wAng+i*PARC,e=s+PARC,p=PRIZES[i];
+  for(var i=0;i<PN;i++){
+    var s=wAng+i*PARC,e=s+PARC,p=PRIZES[i];
     wCtx.beginPath();wCtx.moveTo(WCX,WCY);wCtx.arc(WCX,WCY,WR,s,e);wCtx.closePath();
     wCtx.fillStyle=p.bg;wCtx.fill();
-    // subtle shine overlay
-    const gr=wCtx.createRadialGradient(WCX,WCY,WR*.25,WCX,WCY,WR);
+    var gr=wCtx.createRadialGradient(WCX,WCY,WR*.25,WCX,WCY,WR);
     gr.addColorStop(0,'rgba(255,255,255,.05)');gr.addColorStop(1,'rgba(0,0,0,.12)');
     wCtx.beginPath();wCtx.moveTo(WCX,WCY);wCtx.arc(WCX,WCY,WR,s,e);wCtx.closePath();
     wCtx.fillStyle=gr;wCtx.fill();
-    // divider
     wCtx.beginPath();wCtx.moveTo(WCX,WCY);wCtx.arc(WCX,WCY,WR,s,e);wCtx.closePath();
     wCtx.strokeStyle='rgba(212,175,55,.18)';wCtx.lineWidth=1.5;wCtx.stroke();
-    // label
     wCtx.save();wCtx.translate(WCX,WCY);wCtx.rotate(s+PARC/2);
     wCtx.textAlign='right';wCtx.fillStyle=p.fg;
-    wCtx.font=`700 ${p.a>=500?11:13}px 'Noto Serif Bengali',Georgia,serif`;
+    wCtx.font='700 '+(p.a>=500?11:13)+'px Noto Serif Bengali,Georgia,serif';
     wCtx.fillText(p.t,WR-9,5);
     wCtx.restore();
   }
-  // outer ring
   wCtx.beginPath();wCtx.arc(WCX,WCY,WR,0,Math.PI*2);
   wCtx.strokeStyle='rgba(212,175,55,.5)';wCtx.lineWidth=3;wCtx.stroke();
-  // center hole
   wCtx.beginPath();wCtx.arc(WCX,WCY,28,0,Math.PI*2);
   wCtx.fillStyle='#040c1a';wCtx.fill();
   wCtx.strokeStyle='rgba(212,175,55,.4)';wCtx.lineWidth=2;wCtx.stroke();
@@ -782,7 +736,7 @@ function drawWheel(){
 drawWheel();
 
 function getWinner(){
-  let pa=(((-Math.PI/2)-wAng)%(2*Math.PI)+2*Math.PI)%(2*Math.PI);
+  var pa=(((-Math.PI/2)-wAng)%(2*Math.PI)+2*Math.PI)%(2*Math.PI);
   return PRIZES[Math.floor(pa/PARC)%PN];
 }
 function wFrame(){
@@ -797,19 +751,17 @@ function wFrame(){
   }
 }
 function doSpin(){
-  const nm=document.getElementById('lotName').value.trim();
-  const bk=document.getElementById('lotBkash').value.trim();
-  const cgpa=document.getElementById('lotCgpa').value.trim();
-  const lvl=document.getElementById('lotLevel').value;
+  var nm=document.getElementById('lotName').value.trim();
+  var bk=document.getElementById('lotBkash').value.trim();
   if(!nm){
-    const inp=document.getElementById('lotName');
+    var inp=document.getElementById('lotName');
     inp.style.borderColor='rgba(239,68,68,.7)';inp.placeholder='আগে নাম দাও! 😅';
-    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='তোমার পুরো নাম ✍️'},2200);return;
+    setTimeout(function(){inp.style.borderColor='';inp.placeholder='তোমার পুরো নাম ✍️';},2200);return;
   }
   if(!bk||bk.length<11){
-    const inp=document.getElementById('lotBkash');
-    inp.style.borderColor='rgba(239,68,68,.7)';inp.placeholder='সঠিক বিকাশ নম্বর দাও! 📱';
-    setTimeout(()=>{inp.style.borderColor='';inp.placeholder='বিকাশ নম্বর 📱'},2200);return;
+    var inp2=document.getElementById('lotBkash');
+    inp2.style.borderColor='rgba(239,68,68,.7)';inp2.placeholder='সঠিক বিকাশ নম্বর দাও! 📱';
+    setTimeout(function(){inp2.style.borderColor='';inp2.placeholder='বিকাশ নম্বর 📱';},2200);return;
   }
   if(wSpin)return;
   document.getElementById('resCard').style.display='none';
@@ -818,114 +770,105 @@ function doSpin(){
   wc.classList.add('is-spinning');
   requestAnimationFrame(wFrame);
 }
+
+var lastEntry=null;
+
 function showResult(p,nm){
-  const bk=document.getElementById('lotBkash').value.trim();
-  const cgpa=document.getElementById('lotCgpa').value.trim();
-  const lvl=document.getElementById('lotLevel').value||'—';
-  const msgs=[
-    `মোবারক হো ${nm}! মাহিম আহমাদ এর তরফ থেকে সালামি নেও! 🎉`,
-    `বাহ ${nm}! মাহিম আহমাদ ভাই তোমাকে সালামি দিচ্ছেন — ঈদ মুবারক! 🌙`,
-    `আলহামদুলিল্লাহ! ${nm} — মাহিম আহমাদ এর তরফ থেকে ঈদের সালামি! 💛`,
-    `সুবহানাল্লাহ! ${nm} — মাহিম আহমাদ ভাই এর দোয়া ও সালামি নাও! 🏆`,
+  var bk=document.getElementById('lotBkash').value.trim();
+  var cgpa=document.getElementById('lotCgpa').value.trim();
+  var lvl=document.getElementById('lotLevel').value||'—';
+  var msgs=[
+    'মোবারক হো '+nm+'! Mahim Ahmad এর তরফ থেকে সালামি নেও! 🎉',
+    'বাহ '+nm+'! Mahim Ahmad ভাই তোমাকে সালামি দিচ্ছেন — ঈদ মুবারক! 🌙',
+    'আলহামদুলিল্লাহ! '+nm+' — Mahim Ahmad এর তরফ থেকে ঈদের সালামি! 💛',
+    'সুবহানাল্লাহ! '+nm+' — Mahim Ahmad ভাই এর দোয়া ও সালামি নাও! 🏆',
   ];
   document.getElementById('reEm').textContent=p.e;
-  document.getElementById('reWho').textContent='মাহিম আহমাদ এর তরফ থেকে '+nm+' পেলো —';
+  document.getElementById('reWho').textContent='Mahim Ahmad এর তরফ থেকে '+nm+' পেলো —';
   document.getElementById('reAmt').textContent='৳'+p.a.toLocaleString();
   document.getElementById('reTxt').textContent=msgs[Math.floor(Math.random()*msgs.length)];
-  // funny 1% note
-  const oneP=(p.a*0.01).toFixed(2);
-  const funnyNotes=[
-    `😂 দ্রষ্টব্য: তুমি আসলে পাবে মাত্র ${oneP} টাকা — মানে ১%! বাকিটা মাহিম ভাইয়ের ফি! 🤣`,
-    `😅 সৎ কথা: ${p.a} টাকার ১% হলো ${oneP} টাকা — এটাই তোমার ভাগ্যে! ভাই কমিশন নেবেন! 😆`,
-    `🙈 লুকানো শর্ত: ${p.a} টাকার মধ্যে ${oneP} টাকা তোমার, বাকি ৯৯% প্রসেসিং ফি! 😂`,
+  var oneP=(p.a*0.01).toFixed(2);
+  var funnyNotes=[
+    '😂 দ্রষ্টব্য: তুমি আসলে পাবে মাত্র '+oneP+' টাকা — মানে ১%! বাকিটা মাহিম ভাইয়ের ফি! 🤣',
+    '😅 দ্রষ্টব্য: '+p.a+' টাকার ১% হলো '+oneP+' টাকা — এটাই তোমার ভাগ্যে! ভাই কমিশন নেবেন! 😆',
+    '🙈 দ্রষ্টব্য: '+p.a+' টাকার মধ্যে '+oneP+' টাকা তোমার, বাকি ৯৯% প্রসেসিং ফি! 😂',
   ];
-  const noteEl=document.getElementById('reNote');
+  var noteEl=document.getElementById('reNote');
   noteEl.textContent=funnyNotes[Math.floor(Math.random()*funnyNotes.length)];
   noteEl.style.display='block';
   document.getElementById('resCard').style.display='block';
-  // save entry
-  const entry={nm,bk,cgpa:cgpa||'—',lvl,prize:p.a};
-  lastEntry=entry;
+  lastEntry={nm:nm,bk:bk,cgpa:cgpa||'—',lvl:lvl,prize:p.a};
   try{
-    const saved=JSON.parse(localStorage.getItem('eid_entries')||'[]');
-    saved.unshift({...entry,time:new Date().toLocaleTimeString()});
+    var saved=JSON.parse(localStorage.getItem('eid_entries')||'[]');
+    saved.unshift({nm:nm,bk:bk,cgpa:cgpa||'—',lvl:lvl,prize:p.a,time:new Date().toLocaleTimeString()});
     localStorage.setItem('eid_entries',JSON.stringify(saved.slice(0,50)));
   }catch(e){}
-  lbData.unshift({nm,a:p.a,e:p.e});lbData=lbData.slice(0,10);renderLB();
+  lbData.unshift({nm:nm,a:p.a,e:p.e});lbData=lbData.slice(0,10);renderLB();
 }
+
 function renderLB(){
-  const s=[...lbData].sort((a,b)=>b.a-a.a),ranks=['🥇','🥈','🥉','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
+  var s=[...lbData].sort(function(a,b){return b.a-a.a;}),ranks=['🥇','🥈','🥉','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'];
   document.getElementById('lbBody').innerHTML=s.length
-    ?s.map((r,i)=>`<div class="lb-row" style="animation-delay:${i*.06}s"><span class="lb-rk">${ranks[i]||'•'}</span><span class="lb-nm">${r.e} ${r.nm}</span><span class="lb-pr">৳${r.a.toLocaleString()}</span></div>`).join('')
+    ?s.map(function(r,i){return'<div class="lb-row" style="animation-delay:'+(i*.06)+'s"><span class="lb-rk">'+(ranks[i]||'•')+'</span><span class="lb-nm">'+r.e+' '+r.nm+'</span><span class="lb-pr">৳'+r.a.toLocaleString()+'</span></div>';}).join('')
     :'<div class="lb-empty">এখনো কেউ খেলেনি!</div>';
 }
 
 function levelColorChange(sel){
-  if(sel.value==='Junior'){
-    sel.style.borderColor='rgba(96,165,250,.7)';
-    sel.style.background='rgba(59,130,246,.12)';
-    sel.style.color='#93c5fd';
-  } else if(sel.value==='Senior'){
-    sel.style.borderColor='rgba(251,146,60,.7)';
-    sel.style.background='rgba(249,115,22,.12)';
-    sel.style.color='#fdba74';
-  }
+  if(sel.value==='Junior'){sel.style.borderColor='rgba(96,165,250,.7)';sel.style.background='rgba(59,130,246,.12)';sel.style.color='#93c5fd';}
+  else if(sel.value==='Senior'){sel.style.borderColor='rgba(251,146,60,.7)';sel.style.background='rgba(249,115,22,.12)';sel.style.color='#fdba74';}
 }
-
-let lastEntry=null;
 
 function sendWA(){
   if(!lastEntry){alert('আগে spin করো!');return;}
-  const {nm,bk,cgpa,lvl,prize}=lastEntry;
-  const msg='🎰 ঈদের সালামি লটারি 🎰\n\n👤 নাম: '+nm+'\n📱 বিকাশ: '+bk+'\n📊 CGPA: '+cgpa+'\n🎓 লেভেল: '+lvl+'\n💰 পুরস্কার: ৳'+prize+'\n⏰ সময়: '+new Date().toLocaleTimeString()+'\n\n🌙 মাহিম আহমাদ এর তরফ থেকে ঈদ মুবারক!';
+  var msg='🎰 ঈদের সালামি লটারি 🎰\n\n👤 নাম: '+lastEntry.nm+'\n📱 বিকাশ: '+lastEntry.bk+'\n📊 CGPA: '+lastEntry.cgpa+'\n🎓 লেভেল: '+lastEntry.lvl+'\n💰 পুরস্কার: ৳'+lastEntry.prize+'\n⏰ সময়: '+new Date().toLocaleTimeString()+'\n\n🌙 Mahim Ahmad এর তরফ থেকে ঈদ মুবারক!';
   window.open('https://wa.me/8801960603846?text='+encodeURIComponent(msg),'_blank');
 }
 
 // ═══ GREETING ═══
-let gt='friend';
-function setGT(btn,t){document.querySelectorAll('.gtype').forEach(b=>b.classList.remove('on'));btn.classList.add('on');gt=t}
-const GD={
+var gt='friend';
+function setGT(btn,t){document.querySelectorAll('.gtype').forEach(function(b){b.classList.remove('on');});btn.classList.add('on');gt=t;}
+var GD={
   friend:[
-    (f,t)=>({ar:'عيد مبارك يا صديقي',body:`প্রিয় ${t},\n\nঈদ মুবারক ভাই! এই বিশেষ দিনে তোর জন্য দুআ করি — আল্লাহ যেন তোকে সুস্বাস্থ্য, হাসি আর বরকত দিয়ে ভরিয়ে রাখেন। তুই ছাড়া ঈদের আড্ডা জমে না। সেমাই খেতে ভুলিস না! 😄\n\nঈদ মুবারক! 🌙`,sig:`— ${f} 💛`}),
-    (f,t)=>({ar:'كل عام وأنتم بخير',body:`${t} বস!\n\nরোজার কষ্ট শেষ — এখন মজার সময়! ঈদ মুবারক! হেলথ ডায়েট একদিনের জন্য বন্ধ, শুধু খাও আর ঘুমাও! 😂\n\nভালো থাকিস! 🎉`,sig:`তোর ${f}`}),
+    function(f,t){return{ar:'عيد مبارك يا صديقي',body:'প্রিয় '+t+',\n\nঈদ মুবারক ভাই! এই বিশেষ দিনে তোর জন্য দুআ করি — আল্লাহ যেন তোকে সুস্বাস্থ্য, হাসি আর বরকত দিয়ে ভরিয়ে রাখেন। তুই ছাড়া ঈদের আড্ডা জমে না। সেমাই খেতে ভুলিস না! 😄\n\nঈদ মুবারক! 🌙',sig:'— '+f+' 💛'};},
+    function(f,t){return{ar:'كل عام وأنتم بخير',body:t+' বস!\n\nরোজার কষ্ট শেষ — এখন মজার সময়! ঈদ মুবারক! হেলথ ডায়েট একদিনের জন্য বন্ধ, শুধু খাও আর ঘুমাও! 😂\n\nভালো থাকিস! 🎉',sig:'তোর '+f};},
   ],
   family:[
-    (f,t)=>({ar:'تقبل الله منا ومنكم',body:`প্রিয় ${t},\n\nঈদ মুবারক! আল্লাহ তোমার সব ইবাদত কবুল করুন, সুস্বাস্থ্য ও দীর্ঘ জীবন দান করুন। তোমার মুখের হাসি দেখলেই মনে শান্তি আসে। এই ঈদে তোমার জন্য অনেক দুআ।`,sig:`— ${f} 💖`}),
-    (f,t)=>({ar:'عيد مبارك',body:`আমার প্রিয় ${t},\n\nতুমি আমার জীবনের সবচেয়ে বড় নেয়ামত। ঈদ মুবারক! তোমার হাতের সেমাই না খেলে ঈদ হয় না! আল্লাহ তোমাকে সুস্থ ও হাসিখুশি রাখুন। 🍮`,sig:`তোমার ${f} 🌙`}),
+    function(f,t){return{ar:'تقبل الله منا ومنكم',body:'প্রিয় '+t+',\n\nঈদ মুবারক! আল্লাহ তোমার সব ইবাদত কবুল করুন, সুস্বাস্থ্য ও দীর্ঘ জীবন দান করুন। তোমার মুখের হাসি দেখলেই মনে শান্তি আসে।',sig:'— '+f+' 💖'};},
+    function(f,t){return{ar:'عيد مبارك',body:'আমার প্রিয় '+t+',\n\nতুমি আমার জীবনের সবচেয়ে বড় নেয়ামত। ঈদ মুবারক! তোমার হাতের সেমাই না খেলে ঈদ হয় না! 🍮',sig:'তোমার '+f+' 🌙'};},
   ],
   boss:[
-    (f,t)=>({ar:'عيد مبارك',body:`শ্রদ্ধেয় ${t},\n\nঈদ মুবারক! আপনার নেতৃত্ব সবসময় অনুপ্রেরণা দেয়। আল্লাহ আপনাকে সুস্বাস্থ্য, দীর্ঘ জীবন ও সাফল্য দান করুন। পরিবারসহ ঈদ আনন্দে কাটুক।`,sig:`বিনীত, ${f}`}),
+    function(f,t){return{ar:'عيد مبارك',body:'শ্রদ্ধেয় '+t+',\n\nঈদ মুবারক! আপনার নেতৃত্ব সবসময় অনুপ্রেরণা দেয়। আল্লাহ আপনাকে সুস্বাস্থ্য, দীর্ঘ জীবন ও সাফল্য দান করুন।',sig:'বিনীত, '+f};},
   ],
   crush:[
-    (f,t)=>({ar:'عيد مبارك يا جميل',body:`${t}...\n\nঈদ মুবারক! এই বিশেষ দিনে তোমাকে বিশেষভাবে মনে পড়ছে। আল্লাহ তোমাকে সবসময় হাসিখুশি রাখুন — কারণ তোমার হাসি দেখলে মনে হয় প্রতিদিনই ঈদ। 🌙`,sig:`— ${f} 💛`}),
-    (f,t)=>({ar:'كل عام وأنتم بخير',body:`${t},\n\nঈদের চাঁদের মতোই তুমি আমার জীবনে আলো এনেছ। ঈদ মুবারক! এই ঈদে একটু হাসো — শুধু আমার জন্য। 😊`,sig:`💛 ${f}`}),
+    function(f,t){return{ar:'عيد مبارك يا جميل',body:t+'...\n\nঈদ মুবারক! এই বিশেষ দিনে তোমাকে বিশেষভাবে মনে পড়ছে। তোমার হাসি দেখলে মনে হয় প্রতিদিনই ঈদ। 🌙',sig:'— '+f+' 💛'};},
+    function(f,t){return{ar:'كل عام وأنتم بخير',body:t+',\n\nঈদের চাঁদের মতোই তুমি আমার জীবনে আলো এনেছ। ঈদ মুবারক! এই ঈদে একটু হাসো। 😊',sig:'💛 '+f};},
   ],
   funny:[
-    (f,t)=>({ar:'عيد مبارك 😂',body:`আরে ${t}!\n\nঈদ মুবারক! মাসভর রোজা রেখেছ, এখন খাওয়ার পালা! আজকে ডায়েট হারাম, ব্যায়াম নিষিদ্ধ — শুধু বিরিয়ানি-সেমাই আর ঘুম! 😂\n\nসালামি না পাঠালে কিন্তু ব্লক করব! 😅`,sig:`— ${f}, যে সালামি চায় 😁`}),
+    function(f,t){return{ar:'عيد مبارك 😂',body:'আরে '+t+'!\n\nঈদ মুবারক! মাসভর রোজা রেখেছ, এখন খাওয়ার পালা! আজকে ডায়েট হারাম, ব্যায়াম নিষিদ্ধ — শুধু বিরিয়ানি-সেমাই আর ঘুম! 😂\n\nসালামি না পাঠালে কিন্তু ব্লক করব! 😅',sig:'— '+f+', যে সালামি চায় 😁'};},
   ],
   formal:[
-    (f,t)=>({ar:'تقبل الله منا ومنكم صالح الأعمال',body:`জনাব ${t},\n\nপবিত্র ঈদুল ফিতর উপলক্ষে আপনাকে ও আপনার পরিবারকে জানাই আন্তরিক শুভেচ্ছা। আল্লাহ আমাদের সকলের রোজা ও ইবাদত কবুল করুন এবং সুখ, শান্তি ও সমৃদ্ধি দান করুন।\n\nতাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম।`,sig:`বিনম্র শ্রদ্ধায়, ${f}`}),
+    function(f,t){return{ar:'تقبل الله منا ومنكم صالح الأعمال',body:'জনাব '+t+',\n\nপবিত্র ঈদুল ফিতর উপলক্ষে আপনাকে ও আপনার পরিবারকে জানাই আন্তরিক শুভেচ্ছা। আল্লাহ আমাদের সকলের রোজা ও ইবাদত কবুল করুন।\n\nতাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম।',sig:'বিনম্র শ্রদ্ধায়, '+f};},
   ],
 };
 function mkGreet(){
-  const fr=document.getElementById('gFrom').value.trim()||'তোমার প্রিয়জন';
-  const to=document.getElementById('gTo').value.trim()||'বন্ধু';
-  const pool=GD[gt]||GD.friend;
-  const g=pool[Math.floor(Math.random()*pool.length)](fr,to);
+  var fr=document.getElementById('gFrom').value.trim()||'তোমার প্রিয়জন';
+  var to=document.getElementById('gTo').value.trim()||'বন্ধু';
+  var pool=GD[gt]||GD.friend;
+  var g=pool[Math.floor(Math.random()*pool.length)](fr,to);
   document.getElementById('gAr').textContent=g.ar;
   document.getElementById('gBody').textContent=g.body;
   document.getElementById('gSig').textContent=g.sig;
-  const c=document.getElementById('gCard');c.style.display='block';
-  c.style.animation='none';requestAnimationFrame(()=>c.style.animation='fadeUp .5s ease both');
+  var c=document.getElementById('gCard');c.style.display='block';
+  c.style.animation='none';requestAnimationFrame(function(){c.style.animation='fadeUp .5s ease both';});
 }
 function cpGreet(){
-  const t=document.getElementById('gBody').textContent+'\n\n'+document.getElementById('gSig').textContent;
-  navigator.clipboard.writeText(t).then(()=>{const b=event.target;b.textContent='✅ কপি!';setTimeout(()=>b.textContent='📋 কপি',2000);});
+  var t=document.getElementById('gBody').textContent+'\n\n'+document.getElementById('gSig').textContent;
+  navigator.clipboard.writeText(t).then(function(){var b=event.target;b.textContent='✅ কপি!';setTimeout(function(){b.textContent='📋 কপি';},2000);});
 }
-function shrGreet(){const t=document.getElementById('gBody').textContent;if(navigator.share)navigator.share({text:t});else cpGreet();}
+function shrGreet(){var t=document.getElementById('gBody').textContent;if(navigator.share)navigator.share({text:t});else cpGreet();}
 
 // ═══ QUIZ ═══
-const QS=[
+var QS=[
   {q:'ঈদুল ফিতর কোন মাসের ১ তারিখে?',opts:['রমজান','শাওয়াল','মহররম','রজব'],a:1},
   {q:'ঈদের নামাজ কত রাকাত?',opts:['২ রাকাত','৪ রাকাত','৩ রাকাত','৮ রাকাত'],a:0},
   {q:'ঈদুল ফিতরে কোন ইবাদত ফরজ?',opts:['হজ','যাকাত','সদকাতুল ফিতর','তারাবিহ'],a:2},
@@ -935,54 +878,28 @@ const QS=[
   {q:'"তাকাব্বালাল্লাহু মিন্না ওয়া মিনকুম" অর্থ?',opts:['ঈদ মুবারক','আল্লাহ আমল কবুল করুন','আল্লাহু আকবার','সুবহানাল্লাহ'],a:1},
   {q:'ঈদের নামাজে অতিরিক্ত তাকবীর?',opts:['৪টি','৬টি','৮টি','১২টি'],a:1},
 ];
-let qi=0,qs=0,qa=false;
+var qi=0,qs=0,qa=false;
 function loadQ(){
   if(qi>=QS.length){
     document.getElementById('qTxt').textContent='কুইজ শেষ! 🎉';
-    document.getElementById('qOpts').innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:1rem"><div style="font-size:3rem">🏆</div><div style="color:var(--g1);font-family:'Cinzel',serif;font-size:1.2rem;margin:.5rem">স্কোর: ${qs}/${QS.length}</div><button class="g-make" style="margin-top:.8rem" onclick="resetQ()">🔄 আবার খেলো</button></div>`;
+    document.getElementById('qOpts').innerHTML='<div style="grid-column:1/-1;text-align:center;padding:1rem"><div style="font-size:3rem">🏆</div><div style="color:var(--g1);font-family:Cinzel,serif;font-size:1.2rem;margin:.5rem">স্কোর: '+qs+'/'+QS.length+'</div><button class="g-make" style="margin-top:.8rem" onclick="resetQ()">🔄 আবার খেলো</button></div>';
     document.getElementById('qNext').style.display='none';return;
   }
-  qa=false;const q=QS[qi];
+  qa=false;var q=QS[qi];
   document.getElementById('qFill').style.width=(qi/QS.length*100)+'%';
   document.getElementById('qTxt').textContent=q.q;
-  document.getElementById('qOpts').innerHTML=q.opts.map((o,i)=>`<button class="q-opt" onclick="ansQ(${i})">${o}</button>`).join('');
+  document.getElementById('qOpts').innerHTML=q.opts.map(function(o,i){return'<button class="q-opt" onclick="ansQ('+i+')">'+o+'</button>';}).join('');
   document.getElementById('qNext').style.display='none';
 }
 function ansQ(i){
-  if(qa)return;qa=true;const q=QS[qi];
-  document.querySelectorAll('.q-opt').forEach((o,j)=>{o.classList.add('locked');if(j===q.a)o.classList.add('right');else if(j===i)o.classList.add('wrong');});
+  if(qa)return;qa=true;var q=QS[qi];
+  document.querySelectorAll('.q-opt').forEach(function(o,j){o.classList.add('locked');if(j===q.a)o.classList.add('right');else if(j===i)o.classList.add('wrong');});
   if(i===q.a){qs++;document.getElementById('qScr').textContent='স্কোর: '+qs;doFW();}
   document.getElementById('qNext').style.display='block';
 }
-function nextQ(){qi++;loadQ()}
-function resetQ(){qi=0;qs=0;document.getElementById('qScr').textContent='স্কোর: ০';loadQ()}
+function nextQ(){qi++;loadQ();}
+function resetQ(){qi=0;qs=0;document.getElementById('qScr').textContent='স্কোর: ০';loadQ();}
 loadQ();
-
-// ═══ FIREWORKS ═══
-const fc=document.getElementById('fwCanvas'),fx=fc.getContext('2d');
-let parts=[];
-function resizeFW(){fc.width=innerWidth;fc.height=innerHeight}resizeFW();addEventListener('resize',resizeFW);
-function doFW(){
-  for(let b=0;b<10;b++){setTimeout(()=>{
-    const x=Math.random()*fc.width,y=Math.random()*fc.height*.6+30,h=Math.random()*360;
-    for(let i=0;i<120;i++){const a=Math.PI*2*i/120+Math.random()*.15,sp=Math.random()*8+2;
-      parts.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,dec:Math.random()*.025+.018,r:Math.random()*3+1,col:`hsl(${h+Math.random()*60-30},100%,65%)`});}
-  },b*220);}
-}
-function fwTick(){
-  parts=parts.filter(p=>p.life>0);
-  if(parts.length===0){
-    fx.clearRect(0,0,fc.width,fc.height);
-  } else {
-    fx.fillStyle='rgba(4,12,26,.18)';fx.fillRect(0,0,fc.width,fc.height);
-    parts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.07;p.life-=p.dec;
-      fx.globalAlpha=p.life;fx.beginPath();fx.arc(p.x,p.y,p.r,0,Math.PI*2);fx.fillStyle=p.col;fx.fill();});
-    fx.globalAlpha=1;
-  }
-  requestAnimationFrame(fwTick);
-}
-fwTick();
-setTimeout(doFW,400);setTimeout(doFW,1500);setTimeout(doFW,3000);
 </script>
 </body>
 </html>
